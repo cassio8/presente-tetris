@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+    <div class="container" x-data="fases">
+        <div class="tac">
+            <h1 class="titulo">Galeria</h1>
+        </div>
+        <div class="box merge-titulo">
+            <a href="../play.html" class="button button-icon"><i class="ri-arrow-left-line"></i></a>
+    
+            <div class="fases" x-cloak>
+                <a href="../assets/images/img1.jpg" class="fase popup-image">
+                    <div class="imagem" style="background-image: url(../assets/images/img1.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase1 ? '../assets/images/img2.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase1 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img2.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase2 ? '../assets/images/img3.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase2 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img3.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase3 ? '../assets/images/img4.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase3 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img4.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase4 ? '../assets/images/img5.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase4 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img5.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase5 ? '../assets/images/img6.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase5 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img6.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase6 ? '../assets/images/img7.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase6 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img7.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase7 ? '../assets/images/img8.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase7 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img8.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase8 ? '../assets/images/img9.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase8 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img9.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+                <a :href="scoreTotal >= scoreFase9 ? '../assets/images/img10.jpg' : 'javascript:void(0)'" class="fase popup-image" :class="scoreTotal >= scoreFase9 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img10.jpg)"><i class="ri-lock-2-line"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/storage.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('fases', () => ({
+                scoreTotal: Number(localStorage.getItem('highScoreLevels')),
+                scoreFase1: Number(localStorage.getItem('scoreFase1')),
+                scoreFase2: Number(localStorage.getItem('scoreFase2')),
+                scoreFase3: Number(localStorage.getItem('scoreFase3')),
+                scoreFase4: Number(localStorage.getItem('scoreFase4')),
+                scoreFase5: Number(localStorage.getItem('scoreFase5')),
+                scoreFase6: Number(localStorage.getItem('scoreFase6')),
+                scoreFase7: Number(localStorage.getItem('scoreFase7')),
+                scoreFase8: Number(localStorage.getItem('scoreFase8')),
+                scoreFase9: Number(localStorage.getItem('scoreFase9')),
+                scoreFase10: Number(localStorage.getItem('scoreFase10')),
+     
+                init() {
+                    console.log(this.scoreTotal);
+                },
+            }))
+        })
+
+        $('.popup-image').magnificPopup({
+            type: 'image'
+        });
+    </script>
+</body>
+</html>

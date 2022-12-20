@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+    <div class="container" x-data="fases">
+        <div class="tac">
+            <h1 class="titulo">Fases</h1>
+        </div>
+        <div class="box merge-titulo">
+            <a href="../play.html" class="button button-icon"><i class="ri-arrow-left-line"></i></a>
+    
+            <div class="fases" x-cloak>
+                <a href="fase1.html" class="fase">
+                    <div class="imagem" style="background-image: url(../assets/images/img1.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 1</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase1 ? 'fase2.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase1 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img2.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 2</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase2 ? 'fase3.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase2 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img3.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 3</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase3 ? 'fase4.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase3 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img4.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 4</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase4 ? 'fase5.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase4 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img5.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 5</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase5 ? 'fase6.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase5 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img6.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 6</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase6 ? 'fase7.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase6 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img7.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 7</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase7 ? 'fase8.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase7 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img8.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 8</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase8 ? 'fase9.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase8 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img9.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 9</h2>
+                </a>
+                <a :href="scoreTotal >= scoreFase9 ? 'fase10.html' : 'javascript:void(0)'" class="fase" :class="scoreTotal >= scoreFase9 ? '' : 'blocked'">
+                    <div class="imagem" style="background-image: url(../assets/images/img10.jpg)"><i class="ri-lock-2-line"></i></div>
+                    <h2>Level 10</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/storage.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('fases', () => ({
+                scoreTotal: Number(localStorage.getItem('highScoreLevels')),
+                scoreFase1: Number(localStorage.getItem('scoreFase1')),
+                scoreFase2: Number(localStorage.getItem('scoreFase2')),
+                scoreFase3: Number(localStorage.getItem('scoreFase3')),
+                scoreFase4: Number(localStorage.getItem('scoreFase4')),
+                scoreFase5: Number(localStorage.getItem('scoreFase5')),
+                scoreFase6: Number(localStorage.getItem('scoreFase6')),
+                scoreFase7: Number(localStorage.getItem('scoreFase7')),
+                scoreFase8: Number(localStorage.getItem('scoreFase8')),
+                scoreFase9: Number(localStorage.getItem('scoreFase9')),
+                scoreFase10: Number(localStorage.getItem('scoreFase10')),
+     
+                init() {
+                    console.log(this.scoreTotal);
+                },
+            }))
+        })
+    </script>
+</body>
+</html>

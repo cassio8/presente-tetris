@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tetris</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/app.css">
+    </head>
+    <body>
+        <div x-data="fase">
+            <div class="container">
+                <div class="box small">
+                    <!-- ####Trocar numero aqui -->
+                    <div id="fase-id" data-id="8"></div>
+                    <a href="level-select.html" class="button button-icon"><i class="ri-arrow-left-line"></i></a>
+                    <p id="start"><a href="javascript:play();">Aperte espaço para começar.</a></p>
+    
+                    <div class="play">
+                        <div>
+                            <div id="menu">
+                                <p>score <span id="score">00000</span></p>
+                                <p>high score <span id="highScore">00000</span></p>
+                                <p>linhas <span id="rows">0</span></p>
+                            </div>
+                            <!-- ####Trocar numero aqui -->
+                            <img class="foto" src="../assets/images/img8.jpg">
+                        </div>
+                        <div>
+                            <canvas id="canvas">
+                                Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+                            </canvas>
+                        </div>
+                        <div>
+                            <canvas id="upcoming"></canvas>
+                            <div>
+                                <p class="proxima-fase">Próxima fase: <span x-text="scoreProximaFase"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <script src="../js/storage.js"></script>
+            <script src="../js/jquery.min.js"></script>
+            <script src="../js/stats.js"></script>
+            <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+            <script src="../js/app.js"></script>
+        </div>
+
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('fase', () => ({
+                    scoreTotal: Number(localStorage.getItem('highScoreLevels')),
+                    // ####Trocar numero aqui####
+                    scoreFaseAnterior: localStorage.getItem('scoreFase7'),
+                    // ####Trocar numero aqui####
+                    scoreProximaFase: localStorage.getItem('scoreFase8'),
+                    
+                    init() {
+                        if (this.scoreTotal < this.scoreFaseAnterior) {
+                            window.location.replace('level-select.html');
+                        }
+                    },
+                }));
+            })
+        </script>
+    </body>
+</html>
