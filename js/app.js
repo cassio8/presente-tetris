@@ -374,7 +374,7 @@ function checkNextLevel() {
 
     // Level 10
     if ($('#fase-id').data('id') == 10 && score >= localStorage.getItem('scoreFase10')) {
-        window.location.replace('../views/sucesso.html');
+        window.location.replace('../views/homenagem.html');
     }
 }
 

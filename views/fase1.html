@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="container" x-data="fase">
-            <div class="box small">
+            <div class="box small" style="background-image: url(../assets/images/img1-9MawAQ.jpg)">
                 <div id="fase-id" data-id="1"></div>
                 <a href="level-select.html" class="button button-icon"><i class="ri-arrow-left-line"></i></a>
                 <p id="start"><a href="javascript:play();">Aperte espaço para começar.</a></p>
@@ -26,7 +26,9 @@
                             <p>high score <span id="highScore">00000</span></p>
                             <p>linhas <span id="rows">0</span></p>
                         </div>
-                        <img class="foto" src="../assets/images/img1.jpg">
+                        <div>
+                            <p class="proxima-fase">Próxima fase: <span x-text="scoreProximaFase"></span></p>
+                        </div>
                     </div>
                     <div>
                         <canvas id="canvas">
@@ -35,9 +37,6 @@
                     </div>
                     <div>
                         <canvas id="upcoming"></canvas>
-                        <div>
-                            <p class="proxima-fase">Próxima fase: <span x-text="scoreProximaFase"></span></p>
-                        </div>
                     </div>
                 </div>
             </div>

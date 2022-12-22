@@ -15,7 +15,7 @@
     <body>
         <div x-data="fase">
             <div class="container">
-                <div class="box small">
+                <div class="box small" style="background-image: url(../assets/images/img3-CXGVy8.jpg)">
                     <!-- ####Trocar numero aqui -->
                     <div id="fase-id" data-id="3"></div>
                     <a href="level-select.html" class="button button-icon"><i class="ri-arrow-left-line"></i></a>
@@ -28,8 +28,9 @@
                                 <p>high score <span id="highScore">00000</span></p>
                                 <p>linhas <span id="rows">0</span></p>
                             </div>
-                            <!-- ####Trocar numero aqui -->
-                            <img class="foto" src="../assets/images/img3.jpg">
+                            <div>
+                                <p class="proxima-fase">Próxima fase: <span x-text="scoreProximaFase"></span></p>
+                            </div>
                         </div>
                         <div>
                             <canvas id="canvas">
@@ -38,9 +39,6 @@
                         </div>
                         <div>
                             <canvas id="upcoming"></canvas>
-                            <div>
-                                <p class="proxima-fase">Próxima fase: <span x-text="scoreProximaFase"></span></p>
-                            </div>
                         </div>
                     </div>
                 </div>

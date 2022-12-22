@@ -17,13 +17,25 @@
 [x-cloak] { display: none !important; }
 
 body {
+    position: relative;
     height: 100vh;
-    /* background-image: url(../assets/images/bg.jpeg); */
     background-color: #733718;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Bungee', cursive;
+}
+
+body:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 450px;
+    background-image: url(https://blog.idexlab.com/wp-content/uploads/2014/06/tetris.png);
+    opacity: 0.3;
+    z-index: -1;
 }
 
 a {
@@ -41,6 +53,10 @@ p {
     position: relative;
     margin: 80px auto;
     width: 1170px;
+}
+
+.bg-yellow {
+    background-color: #FFF443 !important;
 }
 
 .tac {
@@ -61,7 +77,11 @@ p {
     font-weight: 700;
     border-radius: 12px;
     border: 3px solid #EDE13E;
-    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.4);;
+}
+
+.button:hover {
+    background: linear-gradient(183deg, rgba(255,244,67,1) 0%, rgb(223, 211, 42) 68%);
 }
 
 .button-icon {
@@ -89,12 +109,13 @@ h2 {
     transform: translate(-50%, -50%);
     width: 90%;
     font-size: 40px;
+    z-index: 1;
 }
 
 #start a {
-    padding: 4px 24px;
+    padding: 8px 24px;
     color: #50250f;
-    background-color: #fff35c;
+    background-color: #FFF443;
     border-radius: 8px;
 }
 
@@ -106,7 +127,7 @@ h2 {
 #canvas {
     display: inline-block;
     vertical-align: top;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.6);
     border: 2px solid #333;
     box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 40%);
 }
@@ -115,7 +136,7 @@ h2 {
     display: block;
     padding: 12px;
     position: relative;
-    background-color: #fff35c;
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 6px;
     box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 40%);
 }
@@ -134,7 +155,7 @@ h2 {
 #upcoming {
     display: block;
     margin: 0;
-    background-color: #fff35c;
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 6px;
     box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 40%);
 }
@@ -159,6 +180,7 @@ h2 {
 }
 
 .box {
+    position: relative;
     margin: 40px auto;
     padding: 100px 40px 60px;
     background-image: url(../assets/images/wood.jpg);
@@ -180,7 +202,7 @@ h2 {
 
 .box .button-icon {
     position: absolute;
-    top: 20px;
+    top: -20px;
     left: -20px;
 }
 
@@ -209,6 +231,7 @@ h2 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     margin-left: -40px;
 }
 
@@ -302,10 +325,10 @@ h2 {
 
 .play .proxima-fase {
     margin: 16px 0 0;
-    padding: 2px 6px;
+    padding: 4px 6px;
     border-radius: 4px;
     color: #50250f;
-    background-color: #fff35c;
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .sucesso #menu {
@@ -316,6 +339,185 @@ h2 {
 .sucesso .button {
     margin: 0 auto; 
     width: 400px;
+}
+
+.homenagem .button-box {
+    margin: 40px auto 80px; 
+    width: 400px;
+}
+
+.animation-up {
+    height: 600px;
+    overflow: hidden;
+}
+
+.animation-up > div {
+    animation: translateUp 160s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.animation-up > div img {
+    margin: 0 0 16px;
+    width: 100%;
+}
+
+.parallax {
+    position: absolute;
+}
+
+.parallax div {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+}
+
+.parallax1 {
+    bottom: 80px;
+    left: 40px;
+}
+
+.parallax1 div {
+    background-color: #127f20;
+}
+
+.parallax1 div:nth-child(2) {
+    top: 0;
+    left: 40px;
+}
+
+.parallax1 div:nth-child(3) {
+    top: -40px;
+    left: 40px;
+}
+
+.parallax1 div:nth-child(4) {
+    top: -40px;
+    left: 80px;
+}
+
+.parallax2 {
+    bottom: 140px;
+    right: 160px;
+}
+
+.parallax2 div {
+    background-color: #7e0c7c;
+}
+
+.parallax2 div:nth-child(2) {
+    top: 0;
+    left: 40px;
+}
+
+.parallax2 div:nth-child(3) {
+    top: -40px;
+    left: 40px;
+}
+
+.parallax2 div:last-child {
+    top: 40px;
+    left: 40px;
+}
+
+.parallax3 {
+    bottom: 300px;
+    left: 300px;
+}
+
+.parallax3 div {
+    background-color: #21fefe;
+}
+
+.parallax3 div:nth-child(2) {
+    top: 40px;
+    left: 0;
+}
+
+.parallax3 div:nth-child(3) {
+    top: 80px;
+    left: 0;
+}
+
+.parallax3 div:last-child {
+    top: 120px;
+    left: 0;
+}
+
+.parallax4 {
+    bottom: 260px;
+    right: 330px;
+}
+
+.parallax4 div {
+    background-color: #fea431;
+}
+
+.parallax4 div:nth-child(2) {
+    top: 0;
+    left: -40px;
+}
+
+.parallax4 div:nth-child(3) {
+    top: -40px;
+    left: -40px;
+}
+
+.parallax4 div:last-child {
+    top: -80px;
+    left: -40px;
+}
+
+@keyframes translateUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-98%);
+    }
+}
+
+.share {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 0;
+}
+
+.share span {
+    margin-right: 8px;
+    padding: 2px 6px;
+    color: #50250f;
+    background: rgb(255,244,67);
+    background: linear-gradient(183deg, rgba(255,244,67,1) 0%, rgba(237,225,62,1) 68%);
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+.share a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 8px;
+    width: 52px;
+    height: 52px;
+    color: #50250f;
+    background: rgb(255,244,67);
+    background: linear-gradient(183deg, rgba(255,244,67,1) 0%, rgba(237,225,62,1) 68%);
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 12px;
+    border: 3px solid #EDE13E;
+    box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 40%);
+    border-radius: 50%;
+}
+
+.share a:last-child {
+    margin-right: 0;
 }
 
 @media screen and (min-width: 0px) and (min-height: 0px) {
@@ -452,5 +654,109 @@ h2 {
     #canvas {
         width: 350px;
         height: 700px;
+    }
+}
+
+/***** Minhas quebras *****/
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+    .fases > .fase {
+        width: calc(33.333333333% - 40px);
+    }
+
+    .fases > .fase .imagem {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 200px;
+        height: auto;
+    }
+
+    .box {
+        padding: 60px 20px;
+    }
+
+    .box.merge-titulo {
+        margin: 32px 0 0;
+    }
+    
+    .menu .box {
+        width: 100%;
+    }
+
+    .fases {
+        margin-left: 0;
+    }
+
+    .fases > .fase {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .fases > .fase .imagem {
+        height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 32px;
+    }
+
+    .button {
+        height: 48px;
+        font-size: 20px;
+    }
+
+    .button-icon {
+        width: 48px;
+    }
+
+    .box .button-icon {
+        left: 0;
+    }
+
+    .menu .box nav ul li a {
+        width: 100%;
+    }
+
+    .menu .box nav ul li a:hover {
+        width: 100%;
+    }
+
+    .fases > .fase .imagem {
+        height: 200px;
+    }
+
+    .sucesso .button {
+        width: 100%;
+    }
+
+    .homenagem .button-box {
+        width: 100%;
+    }
+
+    .share {
+        flex-wrap: wrap;
+    }
+
+    .share span {
+        margin-bottom: 8px;
+        width: 100%;
+    }
+
+    @keyframes translateUp {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-96%);
+        }
     }
 }
