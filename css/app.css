@@ -24,6 +24,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Bungee', cursive;
+    line-height: 1.2;
 }
 
 body:after {
@@ -47,6 +48,7 @@ a {
 p {
     color: #50250f;
     font-family: 'Bungee', cursive;
+    line-height: 1.2;
 }
 
 .container {
@@ -113,10 +115,12 @@ h2 {
 }
 
 #start a {
+    display: block;
     padding: 8px 24px;
     color: #50250f;
     background-color: #FFF443;
     border-radius: 8px;
+    line-height: 1.2;
 }
 
 #stats {
@@ -174,6 +178,7 @@ h2 {
     color: #50250f;
     background-color: #FFF443;
     font-size: 40px;
+    line-height: 1.2;
     border-radius: 12px;
     text-align: center;
     z-index: 1;
